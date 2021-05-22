@@ -5,25 +5,33 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar layoutY="-1.0" prefHeight="27.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Proyectos">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Añadir proyecto" />
+                  <MenuItem mnemonicParsing="false" text="Buscar proyecto" />
+                  <MenuItem mnemonicParsing="false" text="Modificar proyecto" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar proyecto" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Equipos">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Añadir equipo" />
+                  <MenuItem mnemonicParsing="false" text="Buscar equipo" />
+                  <MenuItem mnemonicParsing="false" text="Modificar equipo" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar equipo" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Socios">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Añadir socio" />
+                  <MenuItem mnemonicParsing="false" text="Buscar socio" />
+                  <MenuItem mnemonicParsing="false" text="Modificar socio" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar socio" />
+               </items>
           </Menu>
         </menus>
       </MenuBar>
