@@ -56,6 +56,7 @@ public class P4Application extends Application{
 		loader.setControllerFactory(applicationContext::getBean);
 		Scene scene = new Scene(loader.load(), 800,800,false,SceneAntialiasing.BALANCED);
 		
+		primaryStage.setTitle("ONG Entreculturas");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

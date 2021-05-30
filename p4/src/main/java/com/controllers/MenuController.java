@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.entities.Proyecto;
+import com.services.EquipoService;
 import com.services.ProyectoService;
 
 import javafx.application.HostServices;
@@ -26,6 +27,9 @@ public class MenuController implements Initializable{
 	
 	@Autowired
 	ProyectoService proyectoService;
+	
+	@Autowired
+	EquipoService equipoService;
 	
 	@FXML
 	public Button button;
