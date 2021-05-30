@@ -1,8 +1,11 @@
-package com.p4;
+package com;
+
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import javafx.application.Application;
+
 
 @SpringBootApplication
 public class JavaFXApp{

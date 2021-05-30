@@ -1,4 +1,4 @@
-package com.p4;
+package com;
 
 import java.io.IOException;
 import java.net.URL;
