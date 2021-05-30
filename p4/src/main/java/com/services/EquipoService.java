@@ -29,7 +29,7 @@ public class EquipoService {
 		return equipoList;
 	}
 	
-	public Equipo addGame(Equipo equipo) {
+	public Equipo addEquipo(Equipo equipo) {
 		equipo = equipoRepo.save(equipo);
 		return equipo;
 	}

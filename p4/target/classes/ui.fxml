@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MenuController">
   <tabs>
     <Tab text="Socios">
       <content>
@@ -96,16 +96,16 @@
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="26.0" layoutY="14.0" text="Nombre" />
-                                    <TextField layoutX="26.0" layoutY="34.0" prefHeight="25.0" prefWidth="205.0" />
-                                    <Label layoutX="267.0" layoutY="14.0" text="Dirección" />
-                                    <TextField layoutX="267.0" layoutY="34.0" prefHeight="25.0" prefWidth="306.0" />
-                                    <Label layoutX="26.0" layoutY="83.0" text="Teléfono" />
-                                    <TextField layoutX="208.0" layoutY="109.0" />
-                                    <Label layoutX="208.0" layoutY="83.0" text="Delegación" />
-                                    <TextField layoutX="26.0" layoutY="109.0" />
-                                    <Label layoutX="399.0" layoutY="83.0" text="Tipo de cuota" />
-                                    <ChoiceBox layoutX="399.0" layoutY="109.0" prefWidth="150.0" />
-                                    <Button layoutX="216.0" layoutY="173.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Insertar" />
+                                    <TextField fx:id="nombreEquipo" layoutX="26.0" layoutY="34.0" prefHeight="25.0" prefWidth="205.0" />
+                                    <Label layoutX="270.0" layoutY="14.0" text="Fecha de nacimiento (dd/mm/aaaa)" />
+                                    <TextField fx:id="fechaEquipo" layoutX="270.0" layoutY="34.0" prefHeight="25.0" prefWidth="199.0" />
+                                    <Label layoutX="26.0" layoutY="83.0" text="Dirección" />
+                                    <TextField fx:id="delegacionEquipo" layoutX="237.0" layoutY="109.0" />
+                                    <Label layoutX="240.0" layoutY="83.0" text="Delegación" />
+                                    <TextField fx:id="direccionEquipo" layoutX="26.0" layoutY="109.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <Label layoutX="420.0" layoutY="83.0" text="Teléfono" />
+                                    <Button fx:id="insertarEquipoButton" layoutX="216.0" layoutY="173.0" mnemonicParsing="false" onAction="#insertarEquipo" prefHeight="31.0" prefWidth="131.0" text="Insertar" />
+                                    <TextField fx:id="telefonoEquipo" layoutX="422.0" layoutY="109.0" />
                                  </children>
                               </AnchorPane>
                            </content>

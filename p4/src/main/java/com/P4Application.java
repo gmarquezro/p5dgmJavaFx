@@ -42,9 +42,7 @@ public class P4Application extends Application{
 				ac ->{
 						ac.registerBean(Application.class, () -> P4Application.this);
 						ac.registerBean(Parameters.class, this::getParameters);
-						ac.registerBean(HostServices.class,  this::getHostServices);
-
-						
+						ac.registerBean(HostServices.class,  this::getHostServices);			
 					};
 		
 		this.applicationContext = new SpringApplicationBuilder()
