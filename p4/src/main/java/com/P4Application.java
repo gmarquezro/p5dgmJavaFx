@@ -53,7 +53,7 @@ public class P4Application extends Application{
 		loader.setControllerFactory(applicationContext::getBean);
 		Scene scene = new Scene(loader.load(), 600,600,false,SceneAntialiasing.BALANCED);
 		Image icon = new Image("/icon.png");
-		primaryStage.setTitle("ONG Entreculturas");
+		primaryStage.setTitle("Entreculturas ONG - Jesuita");
 		primaryStage.getIcons().add(icon);
 		primaryStage.setScene(scene);
 		primaryStage.show();

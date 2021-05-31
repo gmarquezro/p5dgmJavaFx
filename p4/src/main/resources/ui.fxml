@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MenuController">
@@ -82,16 +84,24 @@
                         </TitledPane>
                     </panes>
                   </Accordion>
+                  <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image></ImageView>
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Equipos">
+    <Tab text="Miembros de Equipo">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Accordion prefHeight="370.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <panes>
-                        <TitledPane animated="false" text="Insertar Equipo">
+                        <TitledPane animated="false" text="Insertar miembro de equipo">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -110,18 +120,18 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Seleccionar Equipo">
+                        <TitledPane animated="false" text="Seleccionar miembro de equipo">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Button layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
                                     <TextField layoutX="32.0" layoutY="36.0" />
-                                    <Label layoutX="32.0" layoutY="14.0" text="Id de socio" />
+                                    <Label layoutX="32.0" layoutY="14.0" text="Id de miembro" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Modificar Equipo">
+                        <TitledPane animated="false" text="Modificar miembro de equipo">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -142,19 +152,28 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Eliminar Equipo">
+                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Eliminar miembro de equipo">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Button layoutX="180.0" layoutY="40.0" mnemonicParsing="false" text="Eliminar" />
                                     <TextField layoutX="14.0" layoutY="40.0" />
-                                    <Label layoutX="14.0" layoutY="14.0" text="Id de socio" />
+                                    <Label layoutX="14.0" layoutY="14.0" text="Id de miembro" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
                      </panes>
                   </Accordion>
+                  <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -228,6 +247,15 @@
                         </TitledPane>
                      </panes>
                   </Accordion>
+                  <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
       </content>
     </Tab>
