@@ -124,8 +124,8 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
-                                    <TextField layoutX="32.0" layoutY="36.0" />
+                                    <Button fx:id="selectEquipoButton" layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
+                                    <TextField fx:id="selectEquipoField" layoutX="32.0" layoutY="36.0" />
                                     <Label layoutX="32.0" layoutY="14.0" text="Id de miembro" />
                                  </children>
                               </AnchorPane>

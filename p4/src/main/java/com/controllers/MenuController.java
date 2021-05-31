@@ -4,6 +4,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 
 import com.entities.Equipo;
 import com.entities.Proyecto;
+import com.repositories.EquipoRepository;
 import com.services.EquipoService;
 import com.services.ProyectoService;
 
@@ -35,27 +37,28 @@ public class MenuController implements Initializable{
 	@Autowired
 	EquipoService equipoService;
 	
+	@Autowired
+	EquipoRepository equipoRepo;
+	
 	//INSERTAR EQUIPO
-	
 	@FXML
-	public TextField nombreEquipo;
-	
+	public TextField nombreEquipo;	
 	@FXML
 	public TextField direccionEquipo;
-	
 	@FXML
 	public TextField telefonoEquipo;
-	
 	@FXML
 	public TextField delegacionEquipo;
-	
 	@FXML
 	public TextField fechaEquipo;
-	
 	@FXML
 	public Button insertarEquipoButton;
 	
 	// SELECCIONAR EQUIPO
+	@FXML
+	public TextField selectEquipoField;
+	@FXML
+	public Button selectEquipoButton;
 	
 	// MODIFICAR EQUIPO
 	
@@ -69,6 +72,7 @@ public class MenuController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		//this.button.setOnAction( actionEvent -> this.label.setText(this.hostServices.getDocumentBase()));
 		this.insertarEquipoButton.setOnAction( actionEvent -> insertarEquipo());
+		this.selectEquipoButton.setOnAction( actionEvent -> selectEquipo());
 	}
 	
 	public void createProyecto()
@@ -98,8 +102,13 @@ public class MenuController implements Initializable{
 		String telefono = telefonoEquipo.getText().toString();
 		String delegacion = delegacionEquipo.getText().toString();
 		Equipo e = new Equipo(nombre,fechaNacimiento, direccion, telefono, delegacion); 
-		equipoService.addEquipo(e);
-		
+		equipoService.addEquipo(e);	
 	}
 	
+	public void selectEquipo()
+	{
+		int id = Integer.parseInt(selectEquipoField.getText().toString());
+		Optional<Equipo> equipo = equipoRepo.findById(id);
+		System.out.println("me seleccionaste wey");	
+	}
 }
