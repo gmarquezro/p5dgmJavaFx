@@ -23,7 +23,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 @Controller
@@ -59,7 +62,18 @@ public class MenuController implements Initializable{
 	public TextField selectEquipoField;
 	@FXML
 	public Button selectEquipoButton;
-	
+	@FXML
+	public TableView<Equipo> equipoTable;
+	@FXML
+	public TableColumn<Equipo, String> nombreEquipoColumn;
+	@FXML
+	public TableColumn<Equipo, String> fechaEquipoColumn;
+	@FXML
+	public TableColumn<Equipo, String> telefonoEquipoColumn;
+	@FXML
+	public TableColumn<Equipo, String> direccionEquipoColumn;
+	@FXML
+	public TableColumn<Equipo, String> delegacionEquipoColumn;
 	// MODIFICAR EQUIPO
 	
 	// ELIMINAR EQUIPO
@@ -108,7 +122,14 @@ public class MenuController implements Initializable{
 	public void selectEquipo()
 	{
 		int id = Integer.parseInt(selectEquipoField.getText().toString());
+		System.out.print(id);
 		Optional<Equipo> equipo = equipoRepo.findById(id);
+		Equipo e = equipo.get();
+		nombreEquipoColumn.setCellValueFactory(new PropertyValueFactory<Equipo, String>(e.getNombre()));
+		fechaEquipoColumn.setCellValueFactory(new PropertyValueFactory<Equipo, String>(e.getFechaNacimiento().toString()));
+		telefonoEquipoColumn.setCellValueFactory(new PropertyValueFactory<Equipo, String>(e.getTelefono()));
+		direccionEquipoColumn.setCellValueFactory(new PropertyValueFactory<Equipo, String>(e.getDireccion()));
+		delegacionEquipoColumn.setCellValueFactory(new PropertyValueFactory<Equipo, String>(e.getDelegacion()));
 		System.out.println("me seleccionaste wey");	
 	}
 }

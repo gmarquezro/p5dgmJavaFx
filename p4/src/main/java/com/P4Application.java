@@ -54,6 +54,8 @@ public class P4Application extends Application{
 		Scene scene = new Scene(loader.load(), 600,600,false,SceneAntialiasing.BALANCED);
 		Image icon = new Image("/icon.png");
 		primaryStage.setTitle("Entreculturas ONG - Jesuita");
+		primaryStage.setMinHeight(600.0);
+		primaryStage.setMinWidth(600.0);
 		primaryStage.getIcons().add(icon);
 		primaryStage.setScene(scene);
 		primaryStage.show();
