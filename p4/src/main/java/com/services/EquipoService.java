@@ -30,9 +30,13 @@ public class EquipoService {
 		return equipoList;
 	}
 	
-	public Equipo addEquipo(Equipo equipo) {
+	public void addEquipo(Equipo equipo) {
 		equipo = equipoRepo.save(equipo);
-		return equipo;
 	}
 	
+	public Equipo selectEquipo(int id) {
+		Optional<Equipo> e = equipoRepo.findById(id);
+		Equipo equipo = e.orElse(null);
+		return equipo;
+	}
 }

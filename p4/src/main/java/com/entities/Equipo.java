@@ -14,7 +14,7 @@ public class Equipo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	private int idEquipo;
+	private int id;
 	private String nombre;
 	private Date fechaNacimiento;
 	private String direccion;
@@ -33,12 +33,12 @@ public class Equipo {
 		this.delegacion = delegacion;
 	}
 
-	public int getIdEquipo() {
-		return idEquipo;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdEquipo(int idEquipo) {
-		this.idEquipo = idEquipo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -83,7 +83,7 @@ public class Equipo {
 
 	@Override
 	public String toString() {
-		return "Equipo [idEquipo=" + idEquipo + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento
+		return "Equipo [idEquipo=" + id + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento
 				+ ", direccion=" + direccion + ", telefono=" + telefono + ", delegacion=" + delegacion + "]";
 	}
 }

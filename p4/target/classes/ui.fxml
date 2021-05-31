@@ -88,7 +88,7 @@
                   </Accordion>
                   <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fitHeight="150.0" fitWidth="600.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@logo.png" />
                            </image></ImageView>
@@ -129,13 +129,14 @@
                                     <Button fx:id="selectEquipoButton" layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
                                     <TextField fx:id="selectEquipoField" layoutX="32.0" layoutY="36.0" />
                                     <Label layoutX="32.0" layoutY="14.0" text="Id de miembro" />
-                                    <TableView fx:id="equipoTable" layoutX="8.6" layoutY="75.0" prefHeight="125.0" prefWidth="611.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <TableView fx:id="equipoTable" layoutX="-0.40000000000000036" layoutY="75.0" prefHeight="125.0" prefWidth="610.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-1.0">
                                       <columns>
-                                        <TableColumn fx:id="nombreEquipoColumn" prefWidth="118.85712492465973" text="Nombre" />
-                                        <TableColumn fx:id="fechaEquipoColumn" prefWidth="127.9999771118164" text="Fecha de Nacimiento" />
-                                        <TableColumn fx:id="telefonoEquipoColumn" prefWidth="72.00004577636719" text="Teléfono" />
-                                        <TableColumn fx:id="direccionEquipoColumn" prefWidth="169.1429443359375" text="Dirección" />
-                                        <TableColumn fx:id="delegacionEquipoColumn" prefWidth="91.42861938476562" text="Delegación" />
+                                      	<TableColumn fx:id="idEquipoColumn" prefWidth="34.28573668003082" text="Id" />
+                                        <TableColumn fx:id="nombreEquipoColumn" prefWidth="83.99996948242188" text="Nombre" />
+                                        <TableColumn fx:id="fechaEquipoColumn" prefWidth="123.42849731445312" text="Fecha de Nacimiento" />
+                                        <TableColumn fx:id="telefonoEquipoColumn" minWidth="0.0" prefWidth="103.42863464355469" text="Teléfono" />
+                                        <TableColumn fx:id="direccionEquipoColumn" minWidth="0.0" prefWidth="157.142822265625" text="Dirección" />
+                                        <TableColumn fx:id="delegacionEquipoColumn" prefWidth="86.85714721679688" text="Delegación" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -147,18 +148,18 @@
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="39.0" layoutY="20.0" text="Id a modificar" />
-                                    <TextField layoutX="137.0" layoutY="16.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <TextField fx:id="idEquipoUpdate" layoutX="137.0" layoutY="16.0" prefHeight="25.0" prefWidth="191.0" />
                                     <Label layoutX="36.0" layoutY="58.0" text="Nuevo nombre" />
-                                    <TextField layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <TextField fx:id="nombreEquipoUpdate" layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="191.0" />
                                     <Label layoutX="264.0" layoutY="58.0" text="Nueva dirección" />
-                                    <TextField layoutX="266.0" layoutY="88.0" prefHeight="25.0" prefWidth="306.0" />
+                                    <TextField fx:id="direccionEquipoUpdate" layoutX="266.0" layoutY="88.0" prefHeight="25.0" prefWidth="306.0" />
                                     <Label layoutX="35.0" layoutY="126.0" text="Nuevo teléfono" />
-                                    <TextField layoutX="38.0" layoutY="156.0" />
-                                    <Label layoutX="233.0" layoutY="126.0" text="Nueva delegación" />
-                                    <TextField layoutX="232.0" layoutY="156.0" />
-                                    <Label layoutX="419.0" layoutY="126.0" text="Tipo de cuota" />
-                                    <ChoiceBox layoutX="419.0" layoutY="156.0" prefWidth="150.0" />
-                                    <Button layoutX="208.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Modificar" />
+                                    <TextField fx:id="telefonoEquipoUpdate" layoutX="38.0" layoutY="156.0" />
+                                    <Label layoutX="218.0" layoutY="126.0" text="Nueva delegación" />
+                                    <TextField fx:id="delegacionEquipoUpdate" layoutX="218.0" layoutY="156.0" />
+                                    <Label layoutX="388.0" layoutY="126.0" text="Fecha de nacimiento (dd/mm/aaaa)" />
+                                    <TextField fx:id="fechaEquipoUpdate" layoutX="388.0" layoutY="154.0" prefHeight="29.0" prefWidth="149.0" />
+                                    <Button fx:id="equipoUpdateButton" layoutX="208.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Modificar" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -167,8 +168,8 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="180.0" layoutY="40.0" mnemonicParsing="false" text="Eliminar" />
-                                    <TextField layoutX="14.0" layoutY="40.0" />
+                                    <Button fx:id="deleteEquipoButton" layoutX="180.0" layoutY="40.0" mnemonicParsing="false" text="Eliminar" />
+                                    <TextField fx:id="idEquipoEliminar" layoutX="14.0" layoutY="40.0" />
                                     <Label layoutX="14.0" layoutY="14.0" text="Id de miembro" />
                                  </children>
                               </AnchorPane>
@@ -178,7 +179,7 @@
                   </Accordion>
                   <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fitHeight="150.0" fitWidth="600.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.4973188127790138" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@logo.png" />
                            </image>
@@ -260,7 +261,7 @@
                   </Accordion>
                   <AnchorPane prefHeight="106.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ImageView fitHeight="150.0" fitWidth="600.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@logo.png" />
                            </image>
