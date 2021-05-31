@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -30,10 +31,8 @@ public class P4Application extends Application{
 	
 	@Override
 	public void init() throws Exception {
-		
 
 	}
-
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -52,9 +51,10 @@ public class P4Application extends Application{
 
 		FXMLLoader loader = new FXMLLoader(JavaFXApp.class.getResource("/ui.fxml"));
 		loader.setControllerFactory(applicationContext::getBean);
-		Scene scene = new Scene(loader.load(), 800,800,false,SceneAntialiasing.BALANCED);
-		
+		Scene scene = new Scene(loader.load(), 600,600,false,SceneAntialiasing.BALANCED);
+		Image icon = new Image("/icon.png");
 		primaryStage.setTitle("ONG Entreculturas");
+		primaryStage.getIcons().add(icon);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
