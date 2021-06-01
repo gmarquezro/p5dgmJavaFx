@@ -2,6 +2,7 @@ package com.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 
@@ -9,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.entities.Equipo;
 import com.entities.Proyecto;
 import com.repositories.ProyectoRepository;
 
-@Service
+@Component
 public class ProyectoService {
 
 	@Autowired
@@ -34,4 +36,11 @@ public class ProyectoService {
 		proyecto = proyectoRepo.save(proyecto);
 		return proyecto;
 	}
+	
+	public Proyecto selectProyecto(int id) {
+		Optional<Proyecto> e = proyectoRepo.findById(id);
+		Proyecto proyecto = e.orElse(null);
+		return proyecto;
+	}
+	
 }
