@@ -27,16 +27,16 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="26.0" layoutY="14.0" text="Nombre" />
-                                    <TextField layoutX="26.0" layoutY="34.0" prefHeight="25.0" prefWidth="205.0" />
+                                    <TextField fx:id="nombreSocio" layoutX="26.0" layoutY="34.0" prefHeight="25.0" prefWidth="205.0" />
                                     <Label layoutX="267.0" layoutY="14.0" text="Dirección" />
-                                    <TextField layoutX="267.0" layoutY="34.0" prefHeight="25.0" prefWidth="306.0" />
+                                    <TextField fx:id="direccionSocio" layoutX="267.0" layoutY="34.0" prefHeight="25.0" prefWidth="306.0" />
                                     <Label layoutX="26.0" layoutY="83.0" text="Teléfono" />
-                                    <TextField layoutX="208.0" layoutY="109.0" />
+                                    <TextField fx:id="delegacionSocio" layoutX="207.0" layoutY="109.0" />
                                     <Label layoutX="208.0" layoutY="83.0" text="Delegación" />
-                                    <TextField layoutX="26.0" layoutY="109.0" />
-                                    <Label layoutX="399.0" layoutY="83.0" text="Tipo de cuota" />
-                                    <ChoiceBox layoutX="399.0" layoutY="109.0" prefWidth="150.0" />
-                                    <Button layoutX="216.0" layoutY="173.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Insertar" />
+                                    <TextField fx:id="telefonoSocio" layoutX="26.0" layoutY="109.0" />
+                                    <Label fx:id="labelcuota" layoutX="399.0" layoutY="83.0" text="Tipo de cuota" />
+                                    <Button fx:id="insertarSocioButton" layoutX="216.0" layoutY="173.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Insertar" />
+                                    <TextField fx:id="cuotaSocio" layoutX="398.0" layoutY="109.0" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -45,8 +45,8 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
-                                    <TextField layoutX="32.0" layoutY="36.0" />
+                                    <Button fx:id="selectSocioButton" layoutX="202.0" layoutY="36.0" mnemonicParsing="false" text="Seleccionar" />
+                                    <TextField fx:id="selectSocioField" layoutX="32.0" layoutY="36.0" />
                                     <Label layoutX="32.0" layoutY="14.0" text="Id de socio" />
                                  </children>
                               </AnchorPane>
@@ -54,31 +54,31 @@
                       </TitledPane>
                       <TitledPane animated="false" text="Modificar Socio">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <AnchorPane fx:id="cuota" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="39.0" layoutY="20.0" text="Id a modificar" />
-                                    <TextField layoutX="137.0" layoutY="16.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <TextField fx:id="idSocioUpdate" layoutX="137.0" layoutY="16.0" prefHeight="25.0" prefWidth="191.0" />
                                     <Label layoutX="36.0" layoutY="58.0" text="Nuevo nombre" />
-                                    <TextField layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="191.0" />
+                                    <TextField fx:id="nombreSocioUpdate" layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="191.0" />
                                     <Label layoutX="264.0" layoutY="58.0" text="Nueva dirección" />
-                                    <TextField layoutX="266.0" layoutY="88.0" prefHeight="25.0" prefWidth="306.0" />
+                                    <TextField fx:id="direccionSocioUpdate" layoutX="266.0" layoutY="88.0" prefHeight="25.0" prefWidth="306.0" />
                                     <Label layoutX="35.0" layoutY="126.0" text="Nuevo teléfono" />
-                                    <TextField layoutX="38.0" layoutY="156.0" />
+                                    <TextField fx:id="telefonoSocioUpdate" layoutX="35.0" layoutY="156.0" />
                                     <Label layoutX="233.0" layoutY="126.0" text="Nueva delegación" />
-                                    <TextField layoutX="232.0" layoutY="156.0" />
-                                    <Label layoutX="419.0" layoutY="126.0" text="Tipo de cuota" />
-                                    <ChoiceBox layoutX="419.0" layoutY="156.0" prefWidth="150.0" />
-                                    <Button layoutX="208.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Modificar" />
+                                    <TextField fx:id="delegacionSocioUpdate" layoutX="232.0" layoutY="156.0" />
+                                    <Label fx:id="labelcuota" layoutX="419.0" layoutY="126.0" text="Tipo de cuota" />
+                                    <Button fx:id="socioUpdateButton" layoutX="234.0" layoutY="204.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" text="Modificar" />
+                                    <TextField fx:id="tipoCuotaUpdate" layoutX="418.0" layoutY="156.0" />
                                  </children>
                               </AnchorPane>
                         </content>
                       </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Eliminar Socio">
+                        <TitledPane fx:id="idSocioEliminar" animated="false" layoutX="10.0" layoutY="60.0" text="Eliminar Socio">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="180.0" layoutY="40.0" mnemonicParsing="false" text="Eliminar" />
-                                    <TextField layoutX="14.0" layoutY="40.0" />
+                                    <Button fx:id="deleteSocioButton" layoutX="180.0" layoutY="40.0" mnemonicParsing="false" text="Eliminar" />
+                                    <TextField fx:id="idSocioEliminar" layoutX="14.0" layoutY="40.0" />
                                     <Label layoutX="14.0" layoutY="14.0" text="Id de socio" />
                                  </children>
                               </AnchorPane>

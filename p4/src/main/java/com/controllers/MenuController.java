@@ -13,10 +13,13 @@ import org.springframework.stereotype.Controller;
 
 import com.entities.Equipo;
 import com.entities.Proyecto;
+import com.entities.Socio;
 import com.repositories.EquipoRepository;
 import com.repositories.ProyectoRepository;
+import com.repositories.SocioRepository;
 import com.services.EquipoService;
 import com.services.ProyectoService;
+import com.services.SocioService;
 
 import javafx.application.HostServices;
 import javafx.collections.FXCollections;
@@ -25,8 +28,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,10 +49,16 @@ public class MenuController implements Initializable{
 	EquipoService equipoService;
 	
 	@Autowired
+	SocioService socioService;
+	
+	@Autowired
 	EquipoRepository equipoRepo;
 	
 	@Autowired
 	ProyectoRepository proyectoRepo;
+	
+	@Autowired
+	SocioRepository socioRepo;
 	
 /*
     ______            _           
@@ -180,6 +191,68 @@ public class MenuController implements Initializable{
 		@FXML
 		public Button deleteProyectoButton;
 		
+		/*
+	    SOCIO       
+	 	 */
+		
+		//INSERTAR SOCIO
+		@FXML
+		public TextField nombreSocio;	
+		@FXML
+		public TextField direccionSocio;
+		@FXML
+		public TextField telefonoSocio;
+		@FXML
+		public TextField delegacionSocio;
+		@FXML
+		public TextField cuotaSocio;
+		@FXML
+		public Button insertarSocioButton;
+		
+		// SELECCIONAR SOCIO
+		@FXML
+		public TextField selectSocioField;
+		@FXML
+		public Button selectSocioButton;
+		@FXML
+		public TableView<Socio> socioTable;
+		@FXML
+		public TableColumn<Socio, String> idsocioColumn;
+		@FXML
+		public TableColumn<Socio, String> nombreSocioColumn;
+		@FXML
+		public TableColumn<Socio, String> direccionSocioColumn;
+		@FXML
+		public TableColumn<Socio, String> telefonoSocioColumn;
+		@FXML
+		public TableColumn<Socio, String> delegacionSocioColumn;
+		@FXML
+		public TableColumn<Socio, String> tipoCuotaSocioColumn;
+		
+		ObservableList<Socio> socioList = FXCollections.observableArrayList();
+		
+		// MODIFICAR SOCIO
+		@FXML
+		public TextField idSocioUpdate;
+		@FXML
+		public TextField nombreSocioUpdate;
+		@FXML
+		public TextField direccionSocioUpdate;
+		@FXML
+		public TextField telefonoSocioUpdate;
+		@FXML
+		public TextField delegacionSocioUpdate;
+		@FXML
+		public TextField tipoCuotaUpdate;
+		@FXML
+		public Button socioUpdateButton;
+		
+		// ELIMINAR SOCIO
+		@FXML
+		public TextField idSocioEliminar;
+		@FXML
+		public Button deleteSocioButton;
+		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//this.button.setOnAction( actionEvent -> this.label.setText(this.hostServices.getDocumentBase()));
@@ -192,6 +265,12 @@ public class MenuController implements Initializable{
 		this.selectProyectoButton.setOnAction( actionEvent -> selectProyecto());
 		this.modificarProyectoButton.setOnAction( actionEvent -> updateProyecto());
 		this.deleteProyectoButton.setOnAction( actionEvent -> deleteProyecto());
+	
+		this.insertarSocioButton.setOnAction( actionEvent -> insertarSocio());
+		this.selectSocioButton.setOnAction( actionEvent -> selectSocio());
+		this.socioUpdateButton.setOnAction( actionEvent -> updateSocio());
+		this.deleteSocioButton.setOnAction( actionEvent -> deleteSocio());
+	
 	}
 	
 
@@ -377,4 +456,79 @@ public class MenuController implements Initializable{
 		a1.setContentText("El proyecto ha sido eliminado correctamente");
 		a1.showAndWait();
 	}
+	//SOCIO TAB FUCTIONS
+
+	public void insertarSocio()
+	{
+		String nombre = nombreSocio.getText().toString();
+		String direccion = direccionSocio.getText().toString();
+		String telefono = telefonoSocio.getText().toString();
+		String delegacion = delegacionSocio.getText().toString();
+		String tipoCuota = cuotaSocio.getText().toString();
+		Socio s = new Socio(nombre,direccion, telefono, delegacion, tipoCuota); 
+		socioService.addSocio(s);
+		Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+		a1.setTitle("Insertar nuevo socio");
+		a1.setHeaderText("Operación realizada con éxito!");
+		a1.setContentText("El nuevo socio ha sido guardado correctamente");
+		a1.showAndWait();
+	}
+
+	public void selectSocio()
+	{
+		int id = Integer.parseInt(selectSocioField.getText().toString());
+		Socio s = socioService.selectSocio(id);
+		if(s == null) {
+			Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+			a1.setTitle("Seleccionar socio");
+			a1.setHeaderText("Operación fallida!");
+			a1.setContentText("El socio no existe.");
+			a1.showAndWait();
+		}
+		else {
+			socioList.add(s);
+			System.out.print(s);
+			idsocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("id"));
+			nombreSocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("nombre"));
+			direccionSocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("direccion"));
+			telefonoSocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("telefono"));
+			delegacionSocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("delegacion"));
+			tipoCuotaSocioColumn.setCellValueFactory(new PropertyValueFactory<Socio, String>("tipoCuota".toString()));
+			socioTable.setItems(socioList);
+		}
+	}
+
+	public void updateSocio()
+	{
+		int id = Integer.parseInt(selectSocioField.getText().toString());
+		Socio s = socioService.selectSocio(id);
+		String nombre = nombreSocioUpdate.getText().toString();
+		String direccion = direccionSocioUpdate.getText().toString();
+		String telefono = telefonoSocioUpdate.getText().toString();
+		String delegacion = delegacionSocioUpdate.getText().toString();
+		String tipoCuota = tipoCuotaUpdate.getText().toString();
+		s.setNombreSocio(nombre);
+		s.setDireccion(direccion);
+		s.setTelefono(telefono);
+		s.setDelegacion(delegacion);
+		s.setTipoCuota(tipoCuota);
+		
+		socioService.addSocio(s);
+		Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+		a1.setTitle("Modificar socio seleccionado");
+		a1.setHeaderText("Operación realizada con éxito!");
+		a1.setContentText("El socio ha sido modificado correctamente");
+		a1.showAndWait();
+	}
+
+	public void deleteSocio()
+	{
+		int id = Integer.parseInt(selectSocioField.getText().toString());
+		socioRepo.deleteById(id);
+		Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+		a1.setTitle("Eliminar socio seleccionado");
+		a1.setHeaderText("Operación realizada con éxito!");
+		a1.setContentText("El socio ha sido eliminado correctamente");
+		a1.showAndWait();	
+		}
 }
